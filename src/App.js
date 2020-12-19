@@ -45,7 +45,6 @@ const App = () => {
   const addNote = (event) => {
     event.preventDefault();
     let noteObject = {
-      id: notes.length+1,
       content: newNote,
       date : new Date().toISOString(),
       important : Math.random()<0.5
@@ -55,6 +54,12 @@ const App = () => {
       .then(returnedNote => {
         setNotes(notes.concat(returnedNote));
         setNewNote('');  
+      })
+      .catch(error => {
+        setErrorMessage(error.response.data.error);
+        setTimeout(()=>{
+          setErrorMessage(null)
+        }, 5000)
       })
   }
   
@@ -75,6 +80,7 @@ const App = () => {
         setNotes(notes.map(n => n.id !== id ? n : returnedNote))
       })
       .catch(error => {
+        
         setErrorMessage(`the note '${note.content}' has been deleted`);
         setTimeout(() => {
           setErrorMessage(null)
