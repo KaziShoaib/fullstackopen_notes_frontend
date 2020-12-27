@@ -3,7 +3,7 @@ import axios from 'axios'
 let baseURL = `/api/notes`
 let token = null
 
-
+//this function is called from app.js when someone logs in with token returned from backend
 const setToken = (newToken) => {
   token = `bearer ${newToken}` 
 }
