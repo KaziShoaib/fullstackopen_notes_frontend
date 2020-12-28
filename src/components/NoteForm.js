@@ -25,7 +25,8 @@ const NoteForm = ({ addNote }) => {
   };
 
   return (
-    <div>
+    // the className is given for testing purpose
+    <div className='formDiv'>
       <h2>Create a new note</h2>
       <form onSubmit={sendNewNote}>
         <input value={newNote} onChange={handleNoteChange}/>
