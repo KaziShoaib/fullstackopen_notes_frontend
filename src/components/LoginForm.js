@@ -32,11 +32,13 @@ const LoginForm = ({ handleLogin }) => {
     <div>
       <h2>Log In</h2>
       <form onSubmit={sendUserCredentials}>
+        {/* the ids are necessary for testing */}
         <div>
           username:
           <input
             type="text"
             name="Username"
+            id='username'
             value={username}
             onChange={(event) => {setUsername(event.target.value);}}
           />
@@ -46,11 +48,12 @@ const LoginForm = ({ handleLogin }) => {
           <input
             type="password"
             name="Password"
+            id='password'
             value={password}
             onChange={(event) => {setPassword(event.target.value);}}
           />
         </div>
-        <button type="submit">Log in</button>
+        <button id='login-button' type="submit">Log in</button>
       </form>
     </div>
   );

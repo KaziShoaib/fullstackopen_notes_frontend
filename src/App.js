@@ -93,6 +93,7 @@ const App = () => {
       .catch(error => {
 
         setErrorMessage(`the note '${note.content}' has been deleted`);
+        console.log(error);
         setTimeout(() => {
           setErrorMessage(null);
         }, 5000);
@@ -125,7 +126,7 @@ const App = () => {
       //the ref is transferred because we want to access a function
       //defined in the Togglable component from here
       //i.e. from the App component
-      <Togglable buttonLabel='new note' ref={noteFormRef}>
+      <Togglable buttonLabel='add new note' ref={noteFormRef}>
         <NoteForm
           addNote = {addNote}
         />

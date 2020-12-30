@@ -18,18 +18,18 @@ const NoteForm = ({ addNote }) => {
     event.preventDefault();
     const noteObject = {
       content: newNote,
-      important: Math.random() > 0.5
+      important: false //new notes added from the form are unimportant by default
     };
     addNote(noteObject);
     setNewNote('');
   };
 
   return (
-    // the className is given for testing purpose
+    // the className and is are given for testing purpose
     <div className='formDiv'>
       <h2>Create a new note</h2>
       <form onSubmit={sendNewNote}>
-        <input value={newNote} onChange={handleNoteChange}/>
+        <input id='new-note-input' value={newNote} onChange={handleNoteChange}/>
         <button type="submit">Save</button>
       </form>
     </div>
